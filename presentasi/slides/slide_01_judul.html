@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>Smart Silo Aeration System</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      position: relative;
+    }
+    .slide-content {
+      position: relative;
+      z-index: 1;
+      width: 1280px;
+      height: 720px;
+      padding: 44px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .top-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      border: 1px solid #7dd3fc;
+      color: #0369a1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #0284c7;
+    }
+    .sub-tag {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .hero-section {
+      margin-top: 10px;
+      max-width: 1080px;
+    }
+    .main-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+    .main-title-highlight {
+      color: #0284c7;
+    }
+    .sub-title {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #475569;
+      font-weight: 400;
+      max-width: 980px;
+    }
+    .pills-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .spec-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #334155;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .spec-pill svg {
+      width: 16px;
+      height: 16px;
+      stroke: #0284c7;
+    }
+    .footer-identity-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .meta-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .meta-value {
+      font-size: 14.5px;
+      color: #0f172a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body data-slide-root>
+  <div class="slide-content">
+    <div class="top-badge-row">
+      <div class="tag-badge">
+        <span class="tag-dot"></span>
+        SISTEM KENDALI TERTUTUP &amp; ARSITEKTUR IOT
+      </div>
+      <span class="sub-tag">CLOSED-LOOP AERATION SYSTEM</span>
+    </div>
+
+    <div class="hero-section">
+      <h1 class="main-title">
+        Rancang Bangun Sistem Kendali Tertutup<br>
+        <span class="main-title-highlight">Aerasi Silo Bahan Baku</span> Berbasis IoT
+      </h1>
+      <p class="sub-title">
+        Integrasi Closed-Loop PID Control, Pemodelan Fungsi Alih Orde-1 (FOPDT), dan Telemetri Real-Time MQTT untuk Preservasi Kualitas Bahan Baku Curah pada Supply Chain Management.
+      </p>
+
+      <div class="pills-row">
+        <div class="spec-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+          Discrete PID Algorithm (50ms Loop)
+        </div>
+        <div class="spec-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+          MQTT Telemetry (HiveMQ Cloud TLS)
+        </div>
+        <div class="spec-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          FOPDT Mathematical Modeling
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-identity-row">
+      <div class="meta-card">
+        <span class="meta-label">Metode Kendali</span>
+        <span class="meta-value">Discrete Closed-Loop PID &amp; Model FOPDT</span>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">Arsitektur Perangkat</span>
+        <span class="meta-value">ESP32 Core + Solid-State MOSFET 5kHz</span>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">Telemetri &amp; Supervisi</span>
+        <span class="meta-value">HiveMQ Cloud MQTT &amp; Live Web Dashboard</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

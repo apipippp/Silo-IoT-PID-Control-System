@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pt
+
+# Temporary Office Lock Files
+~$*.pptx
+~$*.docx
+~$*.xlsx
+
+# Heavy Course Materials (Slide Kuliah 170MB+)
+MATERI IOT/
+MATERI SISTEM KENDALI/
+weights/
+
+# Local LLM / Agent instructions
+AGENTS.md
+GEMINI.md
+
+# Older clone / Submodule folder
+TugasBesarIOT_SiloMonitoringSystem/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Agentic / CLI internal logs
+.sokudo/

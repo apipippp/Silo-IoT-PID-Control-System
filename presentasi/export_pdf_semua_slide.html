@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Silo Aeration System - Semua Slide untuk Cetak PDF</title>
+  <style>
+    @page {
+      size: 1280px 720px landscape;
+      margin: 0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #334155;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .print-toolbar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+    }
+    .btn-print {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .btn-print:hover { background: #0369a1; }
+    .slide-frame {
+      width: 1280px;
+      height: 720px;
+      border: none;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+        gap: 0;
+      }
+      .print-toolbar {
+        display: none !important;
+      }
+      .slide-frame {
+        box-shadow: none;
+        width: 1280px;
+        height: 720px;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-toolbar">
+    <span style="font-weight:700; font-size:14px;">Smart Silo Aeration System · 12 Slide Deck</span>
+    <button class="btn-print" onclick="window.print()">🖨️ Cetak / Simpan ke PDF (Ctrl + P)</button>
+    <span style="font-size:12px; color:#94a3b8;">Tips: Pada dialog print, pilih Destination: "Save as PDF", Layout: "Landscape", Margins: "None"</span>
+  </div>
+
+  <iframe class="slide-frame" src="slides/slide_01_judul.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_02_problem_statement.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_03_gap_analysis.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_04_pemisahan_domain.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_05_blok_diagram.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_06_komponen_hardware.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_07_pemodelan_matematis.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_08_identifikasi_sistem.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_09_penalaan_pid.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_10_evaluasi_kinerja.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_11_dashboard_iot.html"></iframe>
+  <iframe class="slide-frame" src="slides/slide_12_kesimpulan_roadmap.html"></iframe>
+</body>
+</html>

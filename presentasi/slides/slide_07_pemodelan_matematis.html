@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>Pemodelan Matematis Fungsi Alih Plant</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      position: relative;
+    }
+    .slide-content {
+      position: relative;
+      z-index: 1;
+      width: 1280px;
+      height: 720px;
+      padding: 38px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      border: 1px solid #7dd3fc;
+      color: #0369a1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+    .slide-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.1em;
+    }
+    .math-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    .math-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .step-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .step-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .step-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #0284c7;
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .step-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #475569;
+    }
+    .formula-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 14.5px;
+      color: #0369a1;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .canonical-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .canonical-formula {
+      background: #f0f9ff;
+      border: 2px solid #0284c7;
+      border-radius: 10px;
+      padding: 16px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 20px;
+      color: #0284c7;
+      font-weight: 800;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .param-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .param-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+    .param-sym {
+      font-family: monospace;
+      font-weight: 800;
+      color: #0284c7;
+      font-size: 15px;
+      min-width: 20px;
+    }
+    .param-text {
+      color: #475569;
+    }
+    .param-text strong {
+      color: #0f172a;
+    }
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body data-slide-root>
+  <div class="slide-content">
+    <div class="header-bar">
+      <div>
+        <div class="tag-badge">MATHEMATICAL MODELING</div>
+        <h2 class="slide-title">Penurunan Fungsi Alih Plant Ruang Silo Orde-1 (FOPDT)</h2>
+      </div>
+      <div class="slide-number">07 / 12</div>
+    </div>
+
+    <div class="math-grid">
+      <div class="math-col">
+        <div class="step-card">
+          <div class="step-head">
+            <span class="step-title">1. Persamaan Diferensial Fisik</span>
+            <span class="step-tag">KESETIMBANGAN MASSA</span>
+          </div>
+          <p class="step-desc">
+            Laju akumulasi gas di volume boks silo (V) sebanding dengan laju ekstraksi aliran aerasi blower:
+          </p>
+          <div class="formula-box">
+            V · [dC(t) / dt] + Q_air · C(t) = K_g · u(t)
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-head">
+            <span class="step-title">2. Transformasi Laplace</span>
+            <span class="step-tag">s-DOMAIN (C(0) = 0)</span>
+          </div>
+          <p class="step-desc">
+            Transformasi Laplace dengan asumsi kondisi mula nol untuk memperoleh model input-output linier:
+          </p>
+          <div class="formula-box">
+            (V·s + Q_air) · C(s) = K_g · U(s)
+          </div>
+        </div>
+      </div>
+
+      <div class="canonical-card">
+        <div>
+          <div class="step-head">
+            <span class="step-title" style="font-size:15px;">3. Bentuk Kanonikal Orde-1 (FOPDT)</span>
+            <span class="step-tag">STANDAR NISE &amp; OGATA</span>
+          </div>
+
+          <div class="canonical-formula">
+            G(s) = [ K / (τ·s + 1) ] · e^(-L·s)
+          </div>
+
+          <div class="param-list">
+            <div class="param-item">
+              <span class="param-sym">K</span>
+              <span class="param-text"><strong>Gain Proses (Steady-State Gain):</strong> Rasio perubahan konsentrasi gas akhir per satuan sinyal kendali PWM.</span>
+            </div>
+            <div class="param-item">
+              <span class="param-sym">τ</span>
+              <span class="param-text"><strong>Konstanta Waktu (Time Constant):</strong> Inersia kapasitas volume udara dan laju pembaruan gas.</span>
+            </div>
+            <div class="param-item">
+              <span class="param-sym">L</span>
+              <span class="param-text"><strong>Waktu Tunda (Dead Time):</strong> Lag transportasi pergerakan molekul udara menuju sensor MQ-135.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:11.5px; color:#64748b; margin-top:8px;">
+          *First-Order Plus Dead Time (FOPDT) adalah model kanonik universal untuk sistem aerasi &amp; termal industri.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Smart Silo Aeration System · Closed-Loop PID &amp; IoT Telemetry</span>
+      <span>Physical Mass Balance &amp; Laplace Transfer Function</span>
+    </div>
+  </div>
+</body>
+</html>

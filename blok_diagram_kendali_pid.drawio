@@ -1,0 +1,113 @@
+<mxfile host="app.diagrams.net" modified="2026-11-05T00:00:00.000Z" agent="Mozilla/5.0" version="21.6.8" type="device">
+  <diagram id="blok_kendali_silo" name="Blok Diagram Sistem Kendali Tertutup Silo">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Outer Boundary -->
+        <mxCell id="outer_bg" value="SISTEM KENDALI LINGKAR TERTUTUP (CLOSED-LOOP PID) AERASI HEADSPACE SILO" style="swimlane;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0EA5E9;strokeWidth=2;fontColor=#0EA5E9;fontStyle=1;fontSize=13;startSize=30;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1080" height="420" as="geometry"/>
+        </mxCell>
+
+        <!-- Summing Point 1 -->
+        <mxCell id="sum1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1E293B;strokeColor=#38BDF8;strokeWidth=2;" vertex="1" parent="outer_bg">
+          <mxGeometry x="150" y="140" width="40" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sum1_plus" value="+" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#10B981;fontStyle=1;fontSize=16;" vertex="1" parent="outer_bg">
+          <mxGeometry x="120" y="130" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="sum1_minus" value="-" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#EF4444;fontStyle=1;fontSize=18;" vertex="1" parent="outer_bg">
+          <mxGeometry x="155" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Controller Box -->
+        <mxCell id="controller" value="KONTROLER C(s)&#xa;Algoritma PID Diskrit (ESP32)&#xa;u(t) = Kp·e(t) + Ki∫e(t)dt + Kd·(de/dt)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0EA5E9;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="250" y="120" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Actuator Box -->
+        <mxCell id="actuator" value="AKTUATOR&#xa;• Driver MOSFET HW-517 (PWM)&#xa;• Motor Kipas Blower Aerasi&#xa;• Micro Servo SG90 (Katup Atap)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="520" y="120" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Summing Point 2 (Disturbance) -->
+        <mxCell id="sum2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="outer_bg">
+          <mxGeometry x="760" y="140" width="40" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sum2_plus1" value="+" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#10B981;fontStyle=1;fontSize=16;" vertex="1" parent="outer_bg">
+          <mxGeometry x="735" y="130" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="sum2_plus2" value="+" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#F59E0B;fontStyle=1;fontSize=16;" vertex="1" parent="outer_bg">
+          <mxGeometry x="765" y="100" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Disturbance Input -->
+        <mxCell id="dist_input" value="d(t) GANGGUAN FISIK (DISTURBANCE)&#xa;Pelepasan Gas Fermentasi Bahan Curah / Saluran Tertutup Debu" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#F59E0B;fontSize=10;fontStyle=1;" vertex="1" parent="outer_bg">
+          <mxGeometry x="630" y="60" width="320" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Plant Box -->
+        <mxCell id="plant" value="PLANT FISIK G(s)&#xa;Ruang Headspace Silo (Volume V)&#xa;G(s) = [ K / (τ·s + 1) ] · e^(-L·s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#10B981;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="840" y="120" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Sensor Box (Feedback) -->
+        <mxCell id="sensor" value="SENSOR FEEDBACK H(s)&#xa;Sensor Kualitas Udara MQ-135&#xa;Pembacaan Konsentrasi Gas Aktual (ADC 0-4095)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#38BDF8;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="500" y="280" width="240" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Input Label -->
+        <mxCell id="input_label" value="SETPOINT r(t)&#xa;Batas Gas Aman&#xa;(1500 ADC)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#38BDF8;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="20" y="130" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Output Label -->
+        <mxCell id="output_label" value="OUTPUT FISIK y(t)&#xa;Konsentrasi Gas Terkendali&#xa;(Mencapai Kondisi Aman)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#10B981;fontStyle=1;fontSize=11;" vertex="1" parent="outer_bg">
+          <mxGeometry x="940" y="130" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e_in" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#38BDF8;strokeWidth=2;" edge="1" parent="outer_bg" target="sum1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="160" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_err" value="Galat e(t)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#38BDF8;strokeWidth=2;fontColor=#38BDF8;fontSize=10;" edge="1" parent="outer_bg" source="sum1" target="controller"/>
+        
+        <mxCell id="e_ctrl" value="u(t) (PWM)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0EA5E9;strokeWidth=2;fontColor=#0EA5E9;fontSize=10;" edge="1" parent="outer_bg" source="controller" target="actuator"/>
+
+        <mxCell id="e_act_sum" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#F59E0B;strokeWidth=2;" edge="1" parent="outer_bg" source="actuator" target="sum2"/>
+
+        <mxCell id="e_dist_sum" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#F59E0B;strokeWidth=2;" edge="1" parent="outer_bg" source="dist_input" target="sum2"/>
+
+        <mxCell id="e_sum_plant" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#10B981;strokeWidth=2;" edge="1" parent="outer_bg" source="sum2" target="plant"/>
+
+        <mxCell id="e_out" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#10B981;strokeWidth=2;" edge="1" parent="outer_bg" source="plant">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1060" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Feedback branch -->
+        <mxCell id="e_fb_down" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#38BDF8;strokeWidth=2;" edge="1" parent="outer_bg" source="plant" target="sensor">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="315"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_fb_left" value="Umpan Balik y(t)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#38BDF8;strokeWidth=2;fontColor=#38BDF8;fontSize=10;" edge="1" parent="outer_bg" source="sensor" target="sum1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="315"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
