@@ -1,31 +1,30 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
+# Exclude all heavy documents and assets at root
+*.docx
+*.pptx
+*.xlsx
+~$*
+*.html
+*.drawio
+*.png
+*.py
+*.xml
 *.pt
 
-# Temporary Office Lock Files
-~$*.pptx
-~$*.docx
-~$*.xlsx
-
-# Heavy Course Materials (Slide Kuliah 170MB+)
-MATERI IOT/
-MATERI SISTEM KENDALI/
-weights/
-
-# Local LLM / Agent instructions
+# Exclude local agent instructions
 AGENTS.md
 GEMINI.md
 
-# Older clone / Submodule folder
+# Exclude course folders and extra projects
+MATERI IOT/
+MATERI SISTEM KENDALI/
 TugasBesarIOT_SiloMonitoringSystem/
-
-# IDE & OS
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Agentic / CLI internal logs
+conveyor_object_detection/
+presentasi/
+weights/
+__pycache__/
 .sokudo/
+.vscode/
+
+# Keep root README and firmware_esp32_silo
+!/README.md
+!/firmware_esp32_silo/**
